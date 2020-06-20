@@ -1,1 +1,1 @@
-# solving_mdps_with_model_free_rl
+# Solving MDPs with Model Free RL
