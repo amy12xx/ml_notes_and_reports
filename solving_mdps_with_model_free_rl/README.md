@@ -1,6 +1,6 @@
 # Solving MDPs with Model Free RL
 
-I am working on a visualization of model free reinforcement learning concepts, with a focus on the differences in objectives in various problem settings. 
+I am working on a visualization of summarizing model free reinforcement learning concepts, with a focus on the differences in objectives in various problem settings. 
 
 
 
