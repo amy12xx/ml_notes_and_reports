@@ -1,0 +1,156 @@
+digraph G {
+splines=true
+bgcolor=grey98
+pad=0.3
+style=filled
+edge[minlen=2]
+edge[headport=n, tailport=s, label=""]
+node[style=filled, fontcolor=white]
+ranksep=0.1
+nodesep=0.3
+
+
+// LEVEL 1
+subgraph cluster_0 {
+style=filled
+color=lightgrey
+fontsize=12
+node[fillcolor=black, fontcolor=white, fontsize=16]
+a1[label="\"Solving\" Finite MDPs"]
+//label = "Solving \: finding policy that acts optimally\n in the MDP";
+//labelloc = "b";
+}
+
+
+// LEVEL 2
+node[fillcolor=red4, fontsize=12]
+b1[label="Finite horizon \n(episodic)"]
+node[fillcolor=red4, fontsize=12]
+b2[label="Infinite horizon \n(continuing)"]
+a1-> b1
+a1-> b2
+
+
+// LEVEL 3
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+c1[label=<<b>Undiscounted*</b> <br/><br/><font color="blue">V(s) - Maximize expected future reward</font>>]
+node[shape=box, fillcolor=white, color=grey50]
+c2[label=<<b>Discounted</b>>]
+edge[headport=e, tailport=w, label="for discrete states*", fontsize=8]
+c2-> c1[constraint=false]
+node[shape=box, fillcolor=white, color=grey50]
+c3[label=<<b>Undiscounted</b>>]
+edge[headport=n, tailport=s, label="", style=filled]
+b1-> c1
+b2-> c2
+b2-> c3
+
+
+// LEVEL 4
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+d1[label="Discrete states"]
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+d2[label="Continuous states"]
+c1-> d1
+c1-> d2
+
+
+// LEVEL 5
+node[fillcolor=red4, fontcolor=white, fontsize=10]
+e1[label="Tabular \nMethods\*"]
+d1-> e1
+
+node[fillcolor=red4, fontcolor=white, fontsize=10]
+e2[label="Function \nApproximation"]
+d2-> e2
+
+
+// LEVEL 6
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f1[label="Update V & Q \nusing TD Learning \n \nn\-step return \nTD\(&lambda;\)"]
+e1-> f1
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f2[label="Update V & Q \nusing Gradient Descent \n \nn\-step return \nTD\(&lambda;\)"]
+edge[label="Value-based", fontsize=8]
+e2-> f2
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f3[label=<
+<font color="blue">Maximize expected future <br/>
+reward from start state* </font> <br/><br/> REINFORCE <br/>REINFORCE w\ baseline <br/>Actor-Critic
+>]
+edge[label="Policy-based", fontsize=8]
+e2-> f3
+
+
+node[fillcolor=black, shape=ellipse, fontcolor=white, fontsize=10]
+g1[label="Single step \n \(Bandits\)"]
+edge[label="", minlen=2]
+c3-> g1
+
+node[fillcolor=black, shape=ellipse, fontcolor=white, fontsize=10]
+g2[label="Multi\-step \n\(Regular MDP\)"]
+edge[label="", minlen=2]
+c3-> g2
+
+//edge[headport=w, tailport=e, label="contextual bandits", fontsize=8]
+//g1-> g2[constraint=false]
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+h1[label=<<font color="blue">Maximize expected total <BR/>
+reward over time steps </font><BR/><BR/>
+Use action-value to select an action <BR/>
+q<sub>*</sub>(a) = E[R<sub>t</sub>|A<sub>t</sub>=a]
+<br/><br/>
+Choose action according to :<br/>
+greedy, &epsilon;-greedy, UCB
+>]
+edge[headport=n, tailport=s, label="", fontsize=8]
+g1-> h1
+
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+i1[label="Stationary action \ndistribution"]
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+i2[label="Non-stationary \naction distribution"]
+h1-> i1
+h1-> i2
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+j1[label=<
+<B>Sample average</B> <BR/><BR/>
+Q<sub>n+1</sub> = Q<sub>n</sub> + &alpha;(R<sub>n</sub> - Q<sub>n</sub>)
+<BR/><BR/>
+&alpha; = 1/n
+>]
+edge[label="", fontsize=8]
+i1-> j1
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+j2[label=<
+<B>Exponential recency-weighted average</B><BR/><BR/>
+Q<sub>n+1</sub> = (1 - &alpha;)<sup>n</sup>Q<sub>1</sub> + &Sigma;<sub>i</sub> &alpha;(1 - &alpha;)<sup>n - i</sup>R<sub>i</sub>
+<BR/><BR/>
+&alpha; = constant, in interval (0, 1)
+>]
+edge[label="", fontsize=8]
+i2-> j2
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+h2[label=<
+<b>Average Reward setting</b>
+<br/><br/>
+<font color="blue">Maximize average rate of <br/> reward / Average Reward</font>
+>]
+edge[label="", fontsize=8]
+g2-> h2
+
+// REMARQUES EN BLEU
+node[color=blue, shape=box, margin=0.07, fontcolor=black, fontsize=12, style="dashed", penwidth=0.6]
+//edge[color=blue, arrowhead="none", xlabel="", style="dashed", penwidth=0.6]
+ r1[label="Solving: Finding policy that \n acts optimally in the MDP \n(with model free RL)"]
+// {rank=same;->r1}
+// {rank=same;r1->[dir=back]}
+
+}
