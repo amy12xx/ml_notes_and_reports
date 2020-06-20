@@ -4,14 +4,13 @@ I am working on a visualization of model free reinforcement learning concepts, w
 
 
 
-References:
+## References:
 
-[1] Reinforcement Learning, An Introduction. R, Sutton and A. Barto. Second Edition
+- Reinforcement Learning, An Introduction. R, Sutton and A. Barto. Second Edition
 
 
 
-Acknowledgements:
+## Acknowledgements:
 
-[1] Graphviz Library https://graphviz.org/doc/info/lang.html 
-
-[2] Graphviz Templates by C, Eyssette https://github.com/eyssette/graphviz-templates
+- Graphviz Library https://graphviz.org/doc/info/lang.html 
+- Graphviz Templates by C, Eyssette https://github.com/eyssette/graphviz-templates
