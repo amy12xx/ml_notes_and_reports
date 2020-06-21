@@ -1,1 +1,1 @@
-# ml_notes_and_papers
+# ML notes and papers
