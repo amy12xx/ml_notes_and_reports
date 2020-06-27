@@ -34,22 +34,16 @@ a1-> b2
 // LEVEL 3
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
-c1[label=<<b>Undiscounted*</b> <br/><br/>
-<font color="blue">V(s) - Maximize expected cumulative future reward</font>
+c1[label=<<b>Undiscounted(/Discounted)</b> <br/><br/>
+<font color="blue">Maximize expected (discounted) cumulative future reward</font>
 <br/><br/>
 G<sub>t</sub> = &Sigma;<sub>t+1..T</sub>&gamma;<sup>k-t-1</sup>R<sub>k</sub>
->]
-node[shape=box, fillcolor=white, color=grey50]
-c2[label=<<b>Discounted</b><br/><br/>
-<font color="blue">V(s) - Maximize expected discounted cumulative future reward</font>
-<br/><br/>
-G<sub>t</sub> = &Sigma;<sub>0..&infin;</sub>&gamma;<sup>k</sup>R<sub>t+k+1</sub>
 >]
 node[shape=box, fillcolor=white, color=grey50]
 c3[label=<<b>Undiscounted</b>>]
 edge[headport=n, tailport=s, label="", style=filled]
 b1-> c1
-b2-> c2
+b2-> c1
 b2-> c3
 
 
@@ -61,8 +55,6 @@ d1[label="Discrete states"]
 c1-> d1
 c1-> d2
 
-edge[headport=n, tailport=s, label="", fontsize=8]
-c2-> d1
 
 // LEVEL 5
 node[fillcolor=red4, fontcolor=white, fontsize=10]
