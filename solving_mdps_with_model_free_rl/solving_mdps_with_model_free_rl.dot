@@ -34,11 +34,17 @@ a1-> b2
 // LEVEL 3
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
-c1[label=<<b>Undiscounted*</b> <br/><br/><font color="blue">V(s) - Maximize expected future reward</font>>]
+c1[label=<<b>Undiscounted*</b> <br/><br/>
+<font color="blue">V(s) - Maximize expected cumulative future reward</font>
+<br/><br/>
+G<sub>t</sub> = &Sigma;<sub>t+1..T</sub>&gamma;<sup>k-t-1</sup>R<sub>k</sub>
+>]
 node[shape=box, fillcolor=white, color=grey50]
-c2[label=<<b>Discounted</b>>]
-edge[headport=e, tailport=w, label="for discrete states*", fontsize=8]
-c2-> c1[constraint=false]
+c2[label=<<b>Discounted</b><br/><br/>
+<font color="blue">V(s) - Maximize expected discounted cumulative future reward</font>
+<br/><br/>
+G<sub>t</sub> = &Sigma;<sub>0..&infin;</sub>&gamma;<sup>k</sup>R<sub>t+k+1</sub>
+>]
 node[shape=box, fillcolor=white, color=grey50]
 c3[label=<<b>Undiscounted</b>>]
 edge[headport=n, tailport=s, label="", style=filled]
@@ -49,12 +55,14 @@ b2-> c3
 
 // LEVEL 4
 node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
-d1[label="Discrete states"]
-node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
 d2[label="Continuous states"]
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+d1[label="Discrete states"]
 c1-> d1
 c1-> d2
 
+edge[headport=n, tailport=s, label="", fontsize=8]
+c2-> d1
 
 // LEVEL 5
 node[fillcolor=red4, fontcolor=white, fontsize=10]
@@ -91,12 +99,15 @@ edge[label="", minlen=2]
 c3-> g1
 
 node[fillcolor=black, shape=ellipse, fontcolor=white, fontsize=10]
-g2[label="Multi\-step \n\(Regular MDP\)"]
+g2[label="Contextual Bandits \n(Associative Search)"]
 edge[label="", minlen=2]
 c3-> g2
 
-//edge[headport=w, tailport=e, label="contextual bandits", fontsize=8]
-//g1-> g2[constraint=false]
+node[fillcolor=black, shape=ellipse, fontcolor=white, fontsize=10]
+g3[label="Multi\-step \n\(Regular MDP\)"]
+edge[label="", minlen=2]
+c3-> g3
+
 
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 h1[label=<<font color="blue">Maximize expected total <BR/>
@@ -110,10 +121,22 @@ greedy, &epsilon;-greedy, UCB
 edge[headport=n, tailport=s, label="", fontsize=8]
 g1-> h1
 
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+h2[label=<<font color="blue">Maximize expected total <BR/>
+reward over time steps </font><BR/><BR/>
+Use action-value to select an action <BR/>
+q<sub>*</sub>(a) = E[R<sub>t</sub>|A<sub>t</sub>=a, S<sub>t</sub>=s]
+<br/><br/>
+Choose action according to :<br/>
+&epsilon;-greedy, explore first, etc.
+>]
+edge[headport=n, tailport=s, label="", fontsize=8]
+g2-> h2
+
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
-i1[label="Stationary action \ndistribution"]
+i1[label="Stationary action-value \ndistribution"]
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
-i2[label="Non-stationary \naction distribution"]
+i2[label="Non-stationary \naction-value distribution"]
 h1-> i1
 h1-> i2
 
@@ -138,13 +161,13 @@ edge[label="", fontsize=8]
 i2-> j2
 
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
-h2[label=<
+h3[label=<
 <b>Average Reward setting</b>
 <br/><br/>
 <font color="blue">Maximize average rate of <br/> reward / Average Reward</font>
 >]
 edge[label="", fontsize=8]
-g2-> h2
+g3-> h3
 
 // REMARQUES EN BLEU
 node[color=blue, shape=box, margin=0.07, fontcolor=black, fontsize=12, style="dashed", penwidth=0.6]
