@@ -68,15 +68,10 @@ k2-> d2
 
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
-l1[label=<<b>Smaller MDPs</b> <br/><br/>
-Solve Bellman Equations <br/>using Linear Programming
->]
-node[shape=box, fillcolor=white, color=grey50]
-l2[label=<<b>Moderate to Large MDPs</b> <br/><br/>
+l1[label=<<b>Dynamic Programming</b> <br/><br/>
 Policy Improvement
 >]
 k1-> l1
-k1-> l2
 
 // LEVEL 5
 node[fillcolor=black, fontcolor=white, fontsize=10]
