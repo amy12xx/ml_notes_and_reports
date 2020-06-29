@@ -60,18 +60,26 @@ c1-> k2
 
 // LEVEL 4
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
-d2[label="Continuous states"]
-node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
 d1[label="Discrete states"]
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+d2[label="Continuous states"]
 k2-> d1
 k2-> d2
 
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
-l1[label=<<b>Dynamic Programming</b> <br/><br/>
-Policy Improvement
+l1[label=<<b>Linear Programming</b> <br/><br/>
+(Solve Bellman optimality <br/>equation using <br/>interior points method etc.<br/>Convert to LP and<br/> solve inequality.
+<br/>Only suitable for small MDPs)
 >]
 k1-> l1
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+l2[label=<<b>Dynamic Programming</b> <br/><br/>
+Policy Improvement
+>]
+k1-> l2
+
 
 // LEVEL 5
 node[fillcolor=black, fontcolor=white, fontsize=10]
@@ -181,7 +189,7 @@ g3-> h3
 // REMARQUES EN BLEU
 node[color=blue, shape=box, margin=0.07, fontcolor=black, fontsize=12, style="dashed", penwidth=0.6]
 //edge[color=blue, arrowhead="none", xlabel="", style="dashed", penwidth=0.6]
- r1[label="Solving: Finding policy that \n acts optimally in the MDP"]
+ r1[label="Solving: Finding policy that \n acts optimally (CONTROL) \nin the MDP\n"]
 // {rank=same;->r1}
 // {rank=same;r1->[dir=back]}
 
