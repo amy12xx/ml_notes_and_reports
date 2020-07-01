@@ -76,7 +76,11 @@ k1-> l1
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
 l2[label=<<b>Dynamic Programming</b> <br/><br/>
-Policy Improvement
+Policy Iteration
+<br/><br/>
+- Policy Evaluation <br/>(Finding V<sub>&pi;</sub> for some &pi;)
+<br/><br/>
+- Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
 >]
 k1-> l2
 
