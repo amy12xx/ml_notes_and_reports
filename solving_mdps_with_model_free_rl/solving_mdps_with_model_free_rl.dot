@@ -16,7 +16,7 @@ style=filled
 color=lightgrey
 fontsize=12
 node[fillcolor=black, fontcolor=white, fontsize=16]
-a1[label="\"Solving\" Finite MDPs"]
+a1[label="\"Solving\" MDPs"]
 //label = "Solving \: finding policy that acts optimally\n in the MDP";
 //labelloc = "b";
 }
@@ -66,24 +66,51 @@ d2[label="Continuous states"]
 k2-> d1
 k2-> d2
 
-node[fontcolor=black, fontsize=10]
-node[shape=box, fillcolor=white, color=grey50]
-l1[label=<<b>Linear Programming</b> <br/><br/>
-(Solve Bellman optimality <br/>equation using <br/>interior points method etc.<br/>Convert to LP and<br/> solve inequality.
-<br/>Only suitable for small MDPs)
->]
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+l1[label="Linear \nProgramming"]
 k1-> l1
+
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
-l2[label=<<b>Dynamic Programming</b> <br/><br/>
-Policy Iteration
-<br/><br/>
-- Policy Evaluation <br/>(Finding V<sub>&pi;</sub> for some &pi;)
-<br/><br/>
-- Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
+m3[label=<
+- Solve Bellman optimality <br/>
+equation using <br/>
+interior points method etc.<br/><br/>
+- Convert to LP and<br/> solve inequality.
+<br/>Only suitable for small MDPs
 >]
+l1-> m3
+
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+l2[label="Dynamic\n Programming"]
 k1-> l2
 
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+m1[label="Policy Iteration"]
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+m2[label="(Generalized Policy \nIteration)\nValue Iteration"]
+l2-> m1
+l2-> m2
+
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+n1[label=<
+- Policy Evaluation <br/>(Finding V<sub>&pi;</sub> for &pi;)
+<br/><br/>
+- Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
+<br/><br/>
+>]
+m1-> n1
+
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+n2[label=<
+- Policy Evaluation <br/>(Single sweep over all states)
+<br/><br/>
+- Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
+<br/><br/>
+>]
+m2-> n2
 
 // LEVEL 5
 node[fillcolor=black, fontcolor=white, fontsize=10]
@@ -193,7 +220,7 @@ g3-> h3
 // REMARQUES EN BLEU
 node[color=blue, shape=box, margin=0.07, fontcolor=black, fontsize=12, style="dashed", penwidth=0.6]
 //edge[color=blue, arrowhead="none", xlabel="", style="dashed", penwidth=0.6]
- r1[label="Solving: Finding policy that \n acts optimally (CONTROL) \nin the MDP\n"]
+ r1[label="Solving: Finding policy that \n acts optimally (CONTROL) \nin the MDP\n(For Stationary, single-agent\nfully observable case) "]
 // {rank=same;->r1}
 // {rank=same;r1->[dir=back]}
 
