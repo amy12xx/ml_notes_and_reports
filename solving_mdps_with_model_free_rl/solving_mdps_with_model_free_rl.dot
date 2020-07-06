@@ -52,9 +52,9 @@ b2-> c3
 
 
 node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
-k1[label="Model-based"]
+k1[label="Planning methods"]
 node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
-k2[label="Model-free"]
+k2[label="Model-free RL"]
 c1-> k1
 c1-> k2
 
@@ -88,9 +88,12 @@ k1-> l2
 node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
 m1[label="Policy Iteration"]
 node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
-m2[label="(Generalized Policy \nIteration)\nValue Iteration"]
+m2[label="Value Iteration"]
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+m4[label="Asynchronous DP"]
 l2-> m1
 l2-> m2
+l2-> m4
 
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
@@ -111,6 +114,18 @@ n2[label=<
 <br/><br/>
 >]
 m2-> n2
+
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+n3[label=<
+- Policy Evaluation <br/>States updated in arbitrary order
+<br/>
+Not all states may be updated
+<br/><br/>
+- Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
+<br/><br/>
+>]
+m4-> n3
 
 // LEVEL 5
 node[fillcolor=black, fontcolor=white, fontsize=10]
@@ -220,7 +235,7 @@ g3-> h3
 // REMARQUES EN BLEU
 node[color=blue, shape=box, margin=0.07, fontcolor=black, fontsize=12, style="dashed", penwidth=0.6]
 //edge[color=blue, arrowhead="none", xlabel="", style="dashed", penwidth=0.6]
- r1[label="Solving: Finding policy that \n acts optimally (CONTROL) \nin the MDP\n(For Stationary, single-agent\nfully observable case) "]
+ r1[label="Solving: Finding policy that \n acts optimally (CONTROL) \nin the MDP\n(For stationary, single-agent\nfully observable case) "]
 // {rank=same;->r1}
 // {rank=same;r1->[dir=back]}
 
