@@ -51,6 +51,7 @@ edge[label="", fontsize=8]
 b2-> c3
 
 
+// LEVEL 4
 node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
 k1[label="Planning methods"]
 node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
@@ -58,7 +59,8 @@ k2[label="Model-free RL"]
 c1-> k1
 c1-> k2
 
-// LEVEL 4
+
+// LEVEL 5
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
 d1[label="Discrete states"]
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
@@ -69,7 +71,11 @@ k2-> d2
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
 l1[label="Linear \nProgramming"]
 k1-> l1
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+l2[label="Dynamic\n Programming"]
+k1-> l2
 
+//LEVEL 6
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
 m3[label=<
@@ -81,9 +87,6 @@ interior points method etc.<br/><br/>
 >]
 l1-> m3
 
-node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
-l2[label="Dynamic\n Programming"]
-k1-> l2
 
 node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
 m1[label="Policy Iteration"]
@@ -95,6 +98,8 @@ l2-> m1
 l2-> m2
 l2-> m4
 
+
+// LEVEL 7
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
 n1[label=<
@@ -127,7 +132,8 @@ Not all states may be updated
 >]
 m4-> n3
 
-// LEVEL 5
+
+// LEVEL 6
 node[fillcolor=black, fontcolor=white, fontsize=10]
 e1[label="Tabular \nMethods\*"]
 d1-> e1
@@ -137,7 +143,7 @@ e2[label="Function \nApproximation"]
 d2-> e2
 
 
-// LEVEL 6
+// LEVEL 7
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 f1[label="Update V & Q \nusing TD Learning \n \nn\-step return \nTD\(&lambda;\)"]
 e1-> f1
@@ -156,6 +162,7 @@ edge[label="Policy-based", fontsize=8]
 e2-> f3
 
 
+// LEVEL 4
 node[fillcolor=black, shape=ellipse, fontcolor=white, fontsize=10]
 g1[label="Single step \n \(Bandits\)"]
 edge[label="", minlen=2]
@@ -172,6 +179,7 @@ edge[label="", minlen=2]
 c3-> g3
 
 
+// LEVEL 5
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 h1[label=<<font color="blue">Maximize expected total <BR/>
 reward over time steps </font><BR/><BR/>
@@ -196,6 +204,17 @@ Choose action according to :<br/>
 edge[headport=n, tailport=s, label="", fontsize=8]
 g2-> h2
 
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+h3[label=<
+<b>Average Reward setting</b>
+<br/><br/>
+<font color="blue">Maximize average rate of <br/> reward / Average Reward</font>
+>]
+edge[label="", fontsize=8]
+g3-> h3
+
+
+// LEVEL 6
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
 i1[label="Stationary action-value \ndistribution"]
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
@@ -203,6 +222,7 @@ i2[label="Non-stationary \naction-value distribution"]
 h1-> i1
 h1-> i2
 
+// LEVEL 7
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 j1[label=<
 <B>Sample average</B> <BR/><BR/>
@@ -223,14 +243,6 @@ Q<sub>n+1</sub> = (1 - &alpha;)<sup>n</sup>Q<sub>1</sub> + &Sigma;<sub>i</sub> &
 edge[label="", fontsize=8]
 i2-> j2
 
-node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
-h3[label=<
-<b>Average Reward setting</b>
-<br/><br/>
-<font color="blue">Maximize average rate of <br/> reward / Average Reward</font>
->]
-edge[label="", fontsize=8]
-g3-> h3
 
 // REMARQUES EN BLEU
 node[color=blue, shape=box, margin=0.07, fontcolor=black, fontsize=12, style="dashed", penwidth=0.6]
