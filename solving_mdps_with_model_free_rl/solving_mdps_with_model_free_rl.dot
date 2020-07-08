@@ -123,9 +123,10 @@ m2-> n2
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
 n3[label=<
-- Policy Evaluation <br/>States updated in arbitrary order
+- Policy Evaluation <br/>
+(States updated in arbitrary order
 <br/>
-Not all states may be updated
+Not all states may be updated)
 <br/><br/>
 - Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
 <br/><br/>
@@ -142,11 +143,29 @@ node[fillcolor=black, fontcolor=white, fontsize=10]
 e2[label="Function \nApproximation"]
 d2-> e2
 
+node[fillcolor=red4, fontcolor=white, fontsize=10, shape=ellipse]
+o1[label="Monte Carlo GPI"]
+e1-> o1
+
+node[fillcolor=red4, fontcolor=white, fontsize=10, shape=ellipse]
+o2[label="Temporal Difference \nMethods"]
+e1-> o2
 
 // LEVEL 7
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
-f1[label="Update V & Q \nusing TD Learning \n \nn\-step return \nTD\(&lambda;\)"]
-e1-> f1
+f1[label=<
+- Policy Evaluation<br/>
+(Finding Q<sub>&pi;</sub> for &pi; using sample returns
+<br/>
+Off-policy using importance sampling)
+<br/><br/>
+- Policy Improvement <br/>
+(New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>
+<br/>
+On-policy using &epsilon;-soft policies
+)
+>]
+o1-> f1
 
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 f2[label="Update V & Q \nusing Gradient Descent \n \nn\-step return \nTD\(&lambda;\)"]
