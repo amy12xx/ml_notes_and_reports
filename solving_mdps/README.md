@@ -1,4 +1,4 @@
-# Solving MDPs
+# Solving MDPs using Planning and RL methods
 
 I am working on a visualization of a survey of methods (planning and reinforcement learning) used to solve (sequential) decision problems constructed via MDPs, with a focus on the differences in agent objectives in various problem settings. 
 
