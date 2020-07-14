@@ -231,6 +231,9 @@ p4-> f4
 
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 ff4[label=<
+*One-step returns can be replaced with <br/>
+n-step or TD(&lambda;)
+<br/><br/>
 *Expected SARSA <br/>
 - both on and off policy<br/>
 - uses expectation of action values in update
