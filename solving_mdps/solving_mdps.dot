@@ -1,0 +1,349 @@
+digraph G {
+splines=true
+bgcolor=grey98
+pad=0.3
+style=filled
+edge[minlen=2]
+edge[headport=n, tailport=s, label=""]
+node[style=filled, fontcolor=white]
+ranksep=0.1
+nodesep=0.3
+
+
+// LEVEL 1
+subgraph cluster_0 {
+style=filled
+color=lightgrey
+fontsize=12
+node[fillcolor=black, fontcolor=white, fontsize=16]
+a1[label="\"Solving\" MDPs"]
+//label = "Solving \: finding policy that acts optimally\n in the MDP";
+//labelloc = "b";
+}
+
+
+// LEVEL 2
+node[fillcolor=red4, fontsize=12]
+b1[label="Finite horizon \n(episodic)"]
+node[fillcolor=red4, fontsize=12]
+b2[label="Infinite horizon \n(continuing)"]
+a1-> b1
+a1-> b2
+
+
+// LEVEL 3
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+c1[label=<<b>Undiscounted(/Discounted)</b> <br/><br/>
+<font color="blue">Maximize expected (discounted) cumulative future reward</font>
+<br/><br/>
+G<sub>t</sub> = &Sigma;<sub>t+1..T</sub>&gamma;<sup>k-t-1</sup>R<sub>k</sub>
+<br/><br/>
+v<sub>&pi;</sub>(s) = E[G<sub>t</sub> | S<sub>t</sub>]
+>]
+node[shape=box, fillcolor=white, color=grey50]
+c3[label=<<b>Undiscounted</b>>]
+edge[headport=n, tailport=s, label="", style=filled]
+b1-> c1
+edge[label="Discrete states", fontsize=8]
+b2-> c1
+edge[label="", fontsize=8]
+b2-> c3
+
+
+// LEVEL 4
+node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
+k1[label="Planning methods"]
+node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
+k2[label="Model-free RL"]
+c1-> k1
+c1-> k2
+
+
+// LEVEL 5
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+d1[label="Discrete states"]
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+d2[label="Continuous states"]
+k2-> d1
+k2-> d2
+
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+l1[label="Linear \nProgramming"]
+k1-> l1
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+l2[label="Dynamic\n Programming"]
+k1-> l2
+
+//LEVEL 6
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+m3[label=<
+- Solve Bellman optimality <br/>
+equation using <br/>
+interior points method etc.<br/><br/>
+- Convert to LP and<br/> solve inequality.
+<br/>Only suitable for small MDPs
+>]
+l1-> m3
+
+
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+m1[label="Policy Iteration"]
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+m2[label="Value Iteration"]
+node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
+m4[label="Asynchronous DP"]
+l2-> m1
+l2-> m2
+l2-> m4
+
+
+// LEVEL 7
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+n1[label=<
+- Policy Evaluation <br/>(Finding V<sub>&pi;</sub> for &pi; until convergence)
+<br/><br/>
+- Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
+<br/><br/>
+>]
+m1-> n1
+
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+n2[label=<
+- Policy Evaluation <br/>(Single sweep over all states)
+<br/><br/>
+- Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
+<br/><br/>
+>]
+m2-> n2
+
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+n3[label=<
+- Policy Evaluation <br/>
+(States updated in arbitrary order
+<br/>
+Not all states may be updated)
+<br/><br/>
+- Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
+<br/><br/>
+>]
+m4-> n3
+
+
+// LEVEL 6
+node[fillcolor=black, fontcolor=white, fontsize=10]
+e1[label="Tabular \nMethods\*"]
+d1-> e1
+
+node[fillcolor=black, fontcolor=white, fontsize=10]
+e2[label="Function \nApproximation"]
+d2-> e2
+
+node[fillcolor=red4, fontcolor=white, fontsize=10, shape=ellipse]
+o1[label="Monte Carlo GPI\n [TD(1)]"]
+e1-> o1
+
+node[fillcolor=red4, fontcolor=white, fontsize=10, shape=ellipse]
+o2[label="Temporal Difference \nMethods"]
+e1-> o2
+
+// LEVEL 7
+node[fillcolor=black, fontcolor=white, fontsize=10, shape=ellipse]
+p1[label="On-Policy"]
+o1-> p1
+
+node[fillcolor=black, fontcolor=white, fontsize=10, shape=ellipse]
+p2[label="Off-Policy"]
+o1-> p2
+
+// LEVEL 7
+node[fillcolor=black, fontcolor=white, fontsize=10, shape=ellipse]
+p3[label="On-Policy"]
+o2-> p3
+
+node[fillcolor=black, fontcolor=white, fontsize=10, shape=ellipse]
+p4[label="Off-Policy"]
+o2-> p4
+
+// LEVEL 8
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f1[label=<
+- Policy Evaluation<br/>
+Q values updated at end of every episode<br/>
+Finding Q<sub>&pi;</sub> for &pi; using sample returns
+<br/><br/>
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;G<sub>t</sub> - Q(s<sub>t</sub>, a<sub>t</sub>)]
+<br/><br/>
+- Policy Improvement <br/>
+New &pi; using &epsilon;-soft policies
+>]
+p1-> f1
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f2[label=<
+- Policy Evaluation<br/>
+Q values updated at end of every episode<br/>
+Finding Q<sub>&pi;</sub> for &pi; using sample returns, <br/>using importance sampling
+<br/><br/>
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;G<sub>t</sub> - Q(s<sub>t</sub>, a<sub>t</sub>)]
+<br/><br/>
+- Policy Improvement <br/>
+New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>
+<br/>
+(Behavior policy &epsilon;-soft)
+>]
+p2-> f2
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f3[label=<
+- Policy Evaluation<br/>
+Q values updated every time step<br/><br/>
+SARSA with one-step TD
+<br/>
+[Sample based version of Policy Iteration <br/>(using Bellman expectation eq)]
+<br/><br/>
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;Q(s<sub>t+1</sub>, a<sub>t+1</sub>) - Q(s<sub>t</sub>, a<sub>t</sub>)]
+<br/><br/>
+- Policy Improvement <br/>
+New &pi; using &epsilon;-greedy policy (greedy in the limit)
+>]
+p3-> f3
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f4[label=<
+- Policy Evaluation + Improvement<br/>
+Q values updated every time step<br/><br/>
+Q-learning with one-step TD
+<br/>
+[Sample based version of Value Iteration <br/>(using Bellman optimality eq)]
+<br/><br/>
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;max<sub>a′</sub> Q(s<sub>t+1</sub>, a′) - Q(s<sub>t</sub>, a<sub>t</sub>)]
+<br/><br/>
+(New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>)
+<br/>
+(Behavior policy &epsilon;-soft)
+>]
+p4-> f4
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+ff4[label=<
+*One-step returns can be replaced with <br/>
+n-step or TD(&lambda;)
+<br/><br/>
+*Expected SARSA <br/>
+- both on and off policy<br/>
+- uses expectation of action values in update
+<br/><br/>
+*Double Q-Learning<br/>
+- uses 2 Q functions to overcome maximization bias
+>]
+f4-> ff4
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f5[label="Update V & Q \nusing Gradient Descent \n \nn\-step return \nTD\(&lambda;\)"]
+edge[label="Value-based", fontsize=8]
+e2-> f5
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f6[label=<
+<font color="blue">Maximize expected future <br/>
+reward from start state* </font> <br/><br/> REINFORCE <br/>REINFORCE w\ baseline <br/>Actor-Critic
+>]
+edge[label="Policy-based", fontsize=8]
+e2-> f6
+
+
+// LEVEL 4
+node[fillcolor=black, shape=ellipse, fontcolor=white, fontsize=10]
+g1[label="Single step \n \(Bandits\)"]
+edge[label="", minlen=2]
+c3-> g1
+
+node[fillcolor=black, shape=ellipse, fontcolor=white, fontsize=10]
+g2[label="Contextual Bandits \n(Associative Search)"]
+edge[label="", minlen=2]
+c3-> g2
+
+node[fillcolor=black, shape=ellipse, fontcolor=white, fontsize=10]
+g3[label="Multi\-step \n\(Regular MDP\)"]
+edge[label="", minlen=2]
+c3-> g3
+
+
+// LEVEL 5
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+h1[label=<<font color="blue">Maximize expected total <BR/>
+reward over time steps </font><BR/><BR/>
+Use action-value to select an action <BR/>
+q<sub>*</sub>(a) = E[R<sub>t</sub>|A<sub>t</sub>=a]
+<br/><br/>
+Choose action according to :<br/>
+greedy, &epsilon;-greedy, UCB
+>]
+edge[headport=n, tailport=s, label="", fontsize=8]
+g1-> h1
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+h2[label=<<font color="blue">Maximize expected total <BR/>
+reward over time steps </font><BR/><BR/>
+Use action-value to select an action <BR/>
+q<sub>*</sub>(a) = E[R<sub>t</sub>|A<sub>t</sub>=a, S<sub>t</sub>=s]
+<br/><br/>
+Choose action according to :<br/>
+&epsilon;-greedy, explore first, etc.
+>]
+edge[headport=n, tailport=s, label="", fontsize=8]
+g2-> h2
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+h3[label=<
+<b>Average Reward setting</b>
+<br/><br/>
+<font color="blue">Maximize average rate of <br/> reward / Average Reward</font>
+>]
+edge[label="", fontsize=8]
+g3-> h3
+
+
+// LEVEL 6
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+i1[label="Stationary action-value \ndistribution"]
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+i2[label="Non-stationary \naction-value distribution"]
+h1-> i1
+h1-> i2
+
+// LEVEL 7
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+j1[label=<
+<B>Sample average</B> <BR/><BR/>
+Q<sub>n+1</sub> = Q<sub>n</sub> + &alpha;(R<sub>n</sub> - Q<sub>n</sub>)
+<BR/><BR/>
+&alpha; = 1/n
+>]
+edge[label="", fontsize=8]
+i1-> j1
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+j2[label=<
+<B>Exponential recency-weighted average</B><BR/><BR/>
+Q<sub>n+1</sub> = (1 - &alpha;)<sup>n</sup>Q<sub>1</sub> + &Sigma;<sub>i</sub> &alpha;(1 - &alpha;)<sup>n - i</sup>R<sub>i</sub>
+<BR/><BR/>
+&alpha; = constant, in interval (0, 1)
+>]
+edge[label="", fontsize=8]
+i2-> j2
+
+
+// REMARQUES EN BLEU
+node[color=blue, shape=box, margin=0.07, fontcolor=black, fontsize=12, style="dashed", penwidth=0.6]
+//edge[color=blue, arrowhead="none", xlabel="", style="dashed", penwidth=0.6]
+ r1[label="Solving: Finding policy that \n acts optimally (CONTROL) \nin the MDP\n(For stationary, single-agent\nfully observable case) "]
+// {rank=same;->r1}
+// {rank=same;r1->[dir=back]}
+
+}
