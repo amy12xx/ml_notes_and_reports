@@ -2,7 +2,7 @@
 
 I am working on a visualization of a survey of methods (planning and reinforcement learning) used to solve (sequential) decision problems constructed via MDPs, with a focus on the differences in agent objectives in various problem settings. 
 
-<img src="https://amy12xx.github.io/ml_notes_and_reports/solving_mdps/solving_mdps_2.png">
+<img src="https://amy12xx.github.io/ml_notes_and_reports/solving_mdps/solving_mdps.pdf">
 
 ## References:
 
