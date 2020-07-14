@@ -103,7 +103,7 @@ l2-> m4
 node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
 n1[label=<
-- Policy Evaluation <br/>(Finding V<sub>&pi;</sub> for &pi;)
+- Policy Evaluation <br/>(Finding V<sub>&pi;</sub> for &pi; until convergence)
 <br/><br/>
 - Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
 <br/><br/>
@@ -144,7 +144,7 @@ e2[label="Function \nApproximation"]
 d2-> e2
 
 node[fillcolor=red4, fontcolor=white, fontsize=10, shape=ellipse]
-o1[label="Monte Carlo GPI"]
+o1[label="Monte Carlo GPI\n [TD(1)]"]
 e1-> o1
 
 node[fillcolor=red4, fontcolor=white, fontsize=10, shape=ellipse]
@@ -152,33 +152,106 @@ o2[label="Temporal Difference \nMethods"]
 e1-> o2
 
 // LEVEL 7
+node[fillcolor=black, fontcolor=white, fontsize=10, shape=ellipse]
+p1[label="On-Policy"]
+o1-> p1
+
+node[fillcolor=black, fontcolor=white, fontsize=10, shape=ellipse]
+p2[label="Off-Policy"]
+o1-> p2
+
+// LEVEL 7
+node[fillcolor=black, fontcolor=white, fontsize=10, shape=ellipse]
+p3[label="On-Policy"]
+o2-> p3
+
+node[fillcolor=black, fontcolor=white, fontsize=10, shape=ellipse]
+p4[label="Off-Policy"]
+o2-> p4
+
+// LEVEL 8
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 f1[label=<
 - Policy Evaluation<br/>
-(Finding Q<sub>&pi;</sub> for &pi; using sample returns
-<br/>
-Off-policy using importance sampling)
+Q values updated at end of every episode<br/>
+Finding Q<sub>&pi;</sub> for &pi; using sample returns
+<br/><br/>
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;G<sub>t</sub> - Q(s<sub>t</sub>, a<sub>t</sub>)]
 <br/><br/>
 - Policy Improvement <br/>
-(New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>
-<br/>
-On-policy using &epsilon;-soft policies
-)
+New &pi; using &epsilon;-soft policies
 >]
-o1-> f1
+p1-> f1
 
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
-f2[label="Update V & Q \nusing Gradient Descent \n \nn\-step return \nTD\(&lambda;\)"]
-edge[label="Value-based", fontsize=8]
-e2-> f2
+f2[label=<
+- Policy Evaluation<br/>
+Q values updated at end of every episode<br/>
+Finding Q<sub>&pi;</sub> for &pi; using sample returns, <br/>using importance sampling
+<br/><br/>
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;G<sub>t</sub> - Q(s<sub>t</sub>, a<sub>t</sub>)]
+<br/><br/>
+- Policy Improvement <br/>
+New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>
+<br/>
+(Behavior policy &epsilon;-soft)
+>]
+p2-> f2
 
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 f3[label=<
+- Policy Evaluation<br/>
+Q values updated every time step<br/><br/>
+SARSA with one-step TD
+<br/>
+[Sample based version of Policy Iteration <br/>(using Bellman expectation eq)]
+<br/><br/>
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;Q(s<sub>t+1</sub>, a<sub>t+1</sub>) - Q(s<sub>t</sub>, a<sub>t</sub>)]
+<br/><br/>
+- Policy Improvement <br/>
+New &pi; using &epsilon;-greedy policy (greedy in the limit)
+>]
+p3-> f3
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f4[label=<
+- Policy Evaluation + Improvement<br/>
+Q values updated every time step<br/><br/>
+Q-learning with one-step TD
+<br/>
+[Sample based version of Value Iteration <br/>(using Bellman optimality eq)]
+<br/><br/>
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;max<sub>a1</sub> Q(s<sub>t+1</sub>, a1) - Q(s<sub>t</sub>, a<sub>t</sub>)]
+<br/><br/>
+(New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>)
+<br/>
+(Behavior policy &epsilon;-soft)
+>]
+p4-> f4
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+ff4[label=<
+*Expected SARSA <br/>
+- both on and off policy<br/>
+- uses expectation of action values in update
+<br/><br/>
+*Double Q-Learning<br/>
+- uses 2 Q functions to overcome maximization bias
+>]
+f4-> ff4
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f5[label="Update V & Q \nusing Gradient Descent \n \nn\-step return \nTD\(&lambda;\)"]
+edge[label="Value-based", fontsize=8]
+e2-> f5
+
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+f6[label=<
 <font color="blue">Maximize expected future <br/>
 reward from start state* </font> <br/><br/> REINFORCE <br/>REINFORCE w\ baseline <br/>Actor-Critic
 >]
 edge[label="Policy-based", fontsize=8]
-e2-> f3
+e2-> f6
 
 
 // LEVEL 4
