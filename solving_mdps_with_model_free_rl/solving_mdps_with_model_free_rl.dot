@@ -221,7 +221,7 @@ Q-learning with one-step TD
 <br/>
 [Sample based version of Value Iteration <br/>(using Bellman optimality eq)]
 <br/><br/>
-Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;max<sub>a1</sub> Q(s<sub>t+1</sub>, a1) - Q(s<sub>t</sub>, a<sub>t</sub>)]
+Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;max<sub>a′</sub> Q(s<sub>t+1</sub>, a′) - Q(s<sub>t</sub>, a<sub>t</sub>)]
 <br/><br/>
 (New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>)
 <br/>
