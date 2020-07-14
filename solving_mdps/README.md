@@ -4,6 +4,9 @@ I am working on a visualization of a survey of methods (planning and reinforceme
 
 ![Solving MDPs using Planning and RL](solving_mdps.svg)
 
+![Test](https://amy12xx.github.io/ml_notes_and_reports/solving_mdps/solving_mdps.svg)
+<img src="https://amy12xx.github.io/ml_notes_and_reports/solving_mdps/solving_mdps.svg">
+
 ## References:
 
 - Reinforcement Learning, An Introduction. R, Sutton and A. Barto. Second Edition, http://www.incompleteideas.net/book/the-book.html
