@@ -55,9 +55,26 @@ b2-> c3
 node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
 k1[label="Planning methods"]
 node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
+k3[label="Dyna-Q (Planning + \n Learning"]
+node[fillcolor=black, fontsize=10, shape=ellipse, fontcolor=white]
 k2[label="Model-free RL"]
 c1-> k1
 c1-> k2
+c1-> k3
+
+
+//LEVEL 5
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+kk3[label=<
+1. Direct RL, using real experience<br/>
+(Q-Learning)<br/><br/>
+2. Model learning (storing experience)<br/>
+(Search Control)<br/><br/>
+3. Planning, using simulated <br/>experience from model (loop)<br/>
+(Q-Planning)
+>]
+k3-> kk3
 
 
 // LEVEL 5
