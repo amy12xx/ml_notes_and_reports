@@ -76,6 +76,13 @@ kk3[label=<
 >]
 k3-> kk3
 
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+kkk3[label=<
+*Dyna-Q+: Reward bonus for exploration
+>]
+kk3-> kkk3
+
 
 // LEVEL 5
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
@@ -89,8 +96,12 @@ node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10
 l1[label="Linear \nProgramming"]
 k1-> l1
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
-l2[label="Dynamic\n Programming"]
+l2[label="Background \nPlanning"]
 k1-> l2
+node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
+l3[label="Decision-time \nPlanning"]
+k1-> l3
+
 
 //LEVEL 6
 node[fontcolor=black, fontsize=10]
@@ -150,6 +161,17 @@ Not all states may be updated)
 >]
 m4-> n3
 
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+mm4[label=<
+*Real-time DP
+<br/>
+- On-policy trajectory sampling Value Iteration
+<br/>
+- Update states in the order they are <br/>
+visited in real/simulated trajectories
+>]
+n3-> mm4
 
 // LEVEL 6
 node[fillcolor=black, fontcolor=white, fontsize=10]
