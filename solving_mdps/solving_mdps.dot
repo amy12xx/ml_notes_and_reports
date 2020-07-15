@@ -115,6 +115,14 @@ interior points method etc.<br/><br/>
 >]
 l1-> m3
 
+node[fontcolor=black, fontsize=10]
+node[shape=box, fillcolor=white, color=grey50]
+m5[label=<
+- Heuristic Search <br/>
+- Monte Carlo Tree Search
+>]
+l3-> m5
+
 
 node[style="filled", shape=ellipse, fillcolor=black, fontcolor=white, fontsize=10]
 m1[label="Policy Iteration"]
