@@ -291,7 +291,18 @@ n-step or TD(&lambda;)
 f4-> ff4
 
 node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
-f5[label="Update V & Q \nusing Gradient Descent \n \nn\-step return \nTD\(&lambda;\)"]
+f5[label=<
+Update Q using semi-gradient descent <br/>
+and squared error loss<br/>
+q(S,A,w) ≈ Q(S,A)<br/><br/>
+SARSA:<br/>
+&Delta;w = [R + &gamma;q(S′,A′,w) - q(S,A,w)]&nabla;q(S,A,w)<br/>
+<br/><br/>
+Q-learning:<br/>
+&Delta;w := [R + &gamma;max<sub>a′</sub> q(S′,a′,w) - q(S,A,w)]&nabla;q(S,A,w)<br/>
+
+
+>]
 edge[label="Value-based", fontsize=8]
 e2-> f5
 
