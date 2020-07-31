@@ -296,10 +296,10 @@ Update Q using semi-gradient descent <br/>
 and squared error loss<br/>
 q(S,A,w) ≈ Q(S,A)<br/><br/>
 SARSA:<br/>
-&Delta;w = [R + &gamma;q(S′,A′,w) - q(S,A,w)]&nabla;q(S,A,w)<br/>
+&Delta;w = [R + &gamma;q(S′,A′,w) - q(S,A,w)]∂q(S,A,w)/∂w<br/>
 <br/><br/>
 Q-learning:<br/>
-&Delta;w := [R + &gamma;max<sub>a′</sub> q(S′,a′,w) - q(S,A,w)]&nabla;q(S,A,w)<br/>
+&Delta;w := [R + &gamma;max<sub>a′</sub> q(S′,a′,w) - q(S,A,w)]∂q(S,A,w)/∂w<br/>
 
 
 >]
