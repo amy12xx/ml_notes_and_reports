@@ -367,6 +367,28 @@ edge[label="", fontsize=8]
 g3-> h3
 
 
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+q1[label=<
+<b>Maximize Average return:</b><br/>
+r(&pi;) := E[R<sub>t</sub>|S<sub>0</sub>, A<sub>0:t-1</sub>~&pi;]
+<br/><br/>
+r(&pi;) := &Sigma;<sub>s</sub> &mu;<sub>&pi;</sub>(s) &Sigma;<sub>a</sub> &pi;(a|s) &Sigma;<sub>s′, r</sub> p(s′,r | s,a) r
+<br/><br/>
+<b>Returns: Differential return</b><br/>
+G<sub>t</sub> := R<sub>t+1</sub> - r<sub>&pi;</sub> + R<sub>t+2</sub> - r<sub>&pi;</sub> + ...
+<br/><br/>
+<b>Differential semi-gradient SARSA</b><br/>
+&delta; := R - R<sub>avg</sub> + q(S′,A′,w) - q(S,A,w)
+<br/><br/>
+w := w + &alpha;&delta;∂q(S,A,w)/∂w
+<br/><br/>
+R<sub>avg</sub> := R<sub>avg</sub> + &beta;&delta;
+>]
+edge[label="value based", fontsize=8]
+h3-> q1
+
+
+
 // LEVEL 6
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
 i1[label="Stationary action-value \ndistribution"]
