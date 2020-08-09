@@ -306,7 +306,7 @@ Q-learning:<br/>
 edge[label="Value-based", fontsize=8]
 e2-> f5
 
-node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+node[fillcolor=yellow, fontcolor=black, shape=box, fontsize=10]
 f6[label=<
 <font color="blue">Maximize expected future <br/>
 reward from start state* </font> <br/><br/> REINFORCE <br/>REINFORCE w\ baseline <br/>Actor-Critic
@@ -357,7 +357,7 @@ Choose action according to :<br/>
 edge[headport=n, tailport=s, label="", fontsize=8]
 g2-> h2
 
-node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+node[fillcolor=yellow, fontcolor=black, shape=box, fontsize=10]
 h3[label=<
 <b>Average Reward setting</b>
 <br/><br/>
