@@ -357,7 +357,7 @@ Choose action according to :<br/>
 edge[headport=n, tailport=s, label="", fontsize=8]
 g2-> h2
 
-node[fillcolor=yellow, fontcolor=black, shape=box, fontsize=10]
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 h3[label=<
 <b>Average Reward setting</b>
 <br/><br/>
@@ -387,6 +387,27 @@ R<sub>avg</sub> := R<sub>avg</sub> + &beta;&delta;
 edge[label="value based", fontsize=8]
 h3-> q1
 
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
+q2[label=<
+<b>Maximize Average return:</b><br/>
+r(&pi;) := E[R<sub>t</sub>|S<sub>0</sub>, A<sub>0:t-1</sub>~&pi;]
+<br/><br/>
+r(&pi;) := &Sigma;<sub>s</sub> &mu;<sub>&pi;</sub>(s) &Sigma;<sub>a</sub> &pi;(a|s) &Sigma;<sub>s′, r</sub> p(s′,r | s,a) r
+<br/><br/>
+<b>Returns: Differential return</b><br/>
+G<sub>t</sub> := R<sub>t+1</sub> - r<sub>&pi;</sub> + R<sub>t+2</sub> - r<sub>&pi;</sub> + ...
+<br/><br/>
+<b>Policy gradient methods</b><br/>
+&delta; := R - R<sub>avg</sub> + v(S′,A′,w) - v(S,A,w)
+<br/><br/>
+w := w + &alpha; &delta; ∂q(S,A,w)/∂w
+<br/><br/>
+&theta; := &theta; + &alpha; ∂ ln &pi;(A | S, &theta;)/∂&theta; &delta;
+<br/><br/>
+R<sub>avg</sub> := R<sub>avg</sub> + &beta;&delta;
+>]
+edge[label="policy based", fontsize=8]
+h3-> q2
 
 
 // LEVEL 6
