@@ -306,10 +306,37 @@ Q-learning:<br/>
 edge[label="Value-based", fontsize=8]
 e2-> f5
 
-node[fillcolor=yellow, fontcolor=black, shape=box, fontsize=10]
+node[fillcolor=white, fontcolor=black, shape=box, fontsize=10]
 f6[label=<
 <font color="blue">Maximize expected future <br/>
-reward from start state* </font> <br/><br/> REINFORCE <br/>REINFORCE w\ baseline <br/>Actor-Critic
+reward from start state </font>
+<br/><br/>
+Using Policy Gradient theorem
+<br/>
+∂J(&theta;) ∝  &Sigma;<sub>s</sub> &mu;(s) &Sigma;<sub>a</sub> q<sub>&pi;</sub> (s, a) ∂&pi;(a|s, &theta;) / ∂&theta;
+<br/><br/>
+Use gradient ascent to learn policy, using experience
+<br/><br/>
+REINFORCE (Monte carlo)
+<br/>
+&theta; := &theta; + &alpha; G<sub>t</sub> ∂ ln &pi;(A | S, &theta;)/∂&theta;
+<br/><br/>
+REINFORCE w\ baseline 
+<br/>
+&delta; := G<sub>t</sub> - v(S, w)
+<br/>
+w := w + &alpha; &delta; ∂v(S,w)/∂w
+<br/>
+&theta; := &theta; + &alpha; &gamma;<sup>t</sup> &delta; ∂ ln &pi;(A | S, &theta;)/∂&theta;
+<br/><br/>
+Actor-Critic (one-step semi gradient TD)
+<br/>
+&delta; := R + v(S′,w) - v(S,w)
+<br/>
+w := w + &alpha; &delta; ∂v(S,w)/∂w
+<br/>
+&theta; := &theta; + &alpha; &gamma;<sup>t</sup> &delta; ∂ ln &pi;(A | S, &theta;)/∂&theta;
+<br/><br/>
 >]
 edge[label="Policy-based", fontsize=8]
 e2-> f6
