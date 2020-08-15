@@ -427,7 +427,7 @@ G<sub>t</sub> := R<sub>t+1</sub> - r<sub>&pi;</sub> + R<sub>t+2</sub> - r<sub>&p
 <b>Policy gradient methods</b><br/>
 &delta; := R - R<sub>avg</sub> + v(S′,A′,w) - v(S,A,w)
 <br/><br/>
-w := w + &alpha; &delta; ∂q(S,A,w)/∂w
+w := w + &alpha; &delta; ∂v(S,w)/∂w
 <br/><br/>
 &theta; := &theta; + &alpha; ∂ ln &pi;(A | S, &theta;)/∂&theta; &delta;
 <br/><br/>
