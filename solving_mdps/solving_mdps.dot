@@ -99,7 +99,7 @@ node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10
 l2[label="Background \nPlanning\n(DP)"]
 k1-> l2
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
-l3[label="Decision-time/ \nOnline Planning"]
+l3[label="Decision-time/ \nOnline Planning\n(DP)"]
 k1-> l3
 
 
