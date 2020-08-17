@@ -96,7 +96,7 @@ node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10
 l1[label="Linear \nProgramming"]
 k1-> l1
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
-l2[label="Background \nPlanning"]
+l2[label="Background \nPlanning\n(DP)"]
 k1-> l2
 node[style="filled", shape=ellipse, fillcolor=red4, fontcolor=white, fontsize=10]
 l3[label="Decision-time/ \nOnline Planning"]
@@ -140,8 +140,12 @@ node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
 n1[label=<
 - Policy Evaluation <br/>(Finding V<sub>&pi;</sub> for &pi; until convergence)
+<br/>
+V(s) := &Sigma;<sub>s′,r</sub> p(s′,r|s,a)[r + &gamma;V(s′)]
 <br/><br/>
 - Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
+<br/>
+&pi;(s) := argmax<sub>a</sub> &Sigma;<sub>s′,r</sub> p(s′,r|s,a)[r + &gamma;V(s′)]
 <br/><br/>
 >]
 m1-> n1
@@ -153,6 +157,9 @@ n2[label=<
 <br/><br/>
 - Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
 <br/><br/>
+(Policy evaluation and <br/>improvement done in one step)
+<br/>
+V(s) := max<sub>a</sub> &Sigma;<sub>s′,r</sub> p(s′,r|s,a)[r + &gamma;V(s′)]
 >]
 m2-> n2
 
