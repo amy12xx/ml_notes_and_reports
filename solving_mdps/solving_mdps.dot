@@ -140,11 +140,11 @@ node[fontcolor=black, fontsize=10]
 node[shape=box, fillcolor=white, color=grey50]
 n1[label=<
 - Policy Evaluation <br/>(Finding V<sub>&pi;</sub> for &pi; until convergence)
-<br/>
+<br/><br/>
 V(s) := &Sigma;<sub>s′,r</sub> p(s′,r|s,a)[r + &gamma;V(s′)]
 <br/><br/>
 - Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
-<br/>
+<br/><br/>
 &pi;(s) := argmax<sub>a</sub> &Sigma;<sub>s′,r</sub> p(s′,r|s,a)[r + &gamma;V(s′)]
 <br/><br/>
 >]
@@ -158,7 +158,7 @@ n2[label=<
 - Policy Improvement <br/>(New &pi; - Greedy w.r.t current V<sub>&pi;</sub>)
 <br/><br/>
 (Policy evaluation and <br/>improvement done in one step)
-<br/>
+<br/><br/>
 V(s) := max<sub>a</sub> &Sigma;<sub>s′,r</sub> p(s′,r|s,a)[r + &gamma;V(s′)]
 >]
 m2-> n2
@@ -230,7 +230,7 @@ f1[label=<
 Q values updated at end of every episode<br/>
 Finding Q<sub>&pi;</sub> for &pi; using sample returns
 <br/><br/>
-Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;G<sub>t</sub> - Q(s<sub>t</sub>, a<sub>t</sub>)]
+Q(S, A) := Q(S, A) + &alpha;[R + &gamma;G<sub>t</sub> - Q(S, A)]
 <br/><br/>
 - Policy Improvement <br/>
 New &pi; using &epsilon;-soft policies
@@ -243,7 +243,7 @@ f2[label=<
 Q values updated at end of every episode<br/>
 Finding Q<sub>&pi;</sub> for &pi; using sample returns, <br/>using importance sampling
 <br/><br/>
-Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;G<sub>t</sub> - Q(s<sub>t</sub>, a<sub>t</sub>)]
+Q(S, A) := Q(S, A) + &alpha;[R + &gamma;G<sub>t</sub> - Q(S, A)]
 <br/><br/>
 - Policy Improvement <br/>
 New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>
@@ -260,7 +260,7 @@ SARSA with one-step TD
 <br/>
 [Sample based version of Policy Iteration <br/>(using Bellman expectation eq)]
 <br/><br/>
-Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;Q(s<sub>t+1</sub>, a<sub>t+1</sub>) - Q(s<sub>t</sub>, a<sub>t</sub>)]
+Q(S, A) := Q(S, A) + &alpha;[R + &gamma;Q(S′, A′) - Q(S, A)]
 <br/><br/>
 - Policy Improvement <br/>
 New &pi; using &epsilon;-greedy policy (greedy in the limit)
@@ -275,7 +275,7 @@ Q-learning with one-step TD
 <br/>
 [Sample based version of Value Iteration <br/>(using Bellman optimality eq)]
 <br/><br/>
-Q(s<sub>t</sub>, a<sub>t</sub>) := Q(s<sub>t</sub>, a<sub>t</sub>) + &alpha;[R<sub>t+1</sub> + &gamma;max<sub>a′</sub> Q(s<sub>t+1</sub>, a′) - Q(s<sub>t</sub>, a<sub>t</sub>)]
+Q(S, A) := Q(S, A) + &alpha;[R + &gamma;max<sub>a′</sub> Q(S′, a′) - Q(S, A)]
 <br/><br/>
 (New &pi; - Greedy w.r.t current Q<sub>&pi;</sub>)
 <br/>
@@ -320,7 +320,7 @@ reward from start state </font>
 <br/><br/>
 Using Policy Gradient theorem
 <br/>
-∂J(&theta;) ∝  &Sigma;<sub>s</sub> &mu;(s) &Sigma;<sub>a</sub> q<sub>&pi;</sub> (s, a) ∂&pi;(a|s, &theta;) / ∂&theta;
+∂J(&theta;) ~  &Sigma;<sub>s</sub> &mu;(s) &Sigma;<sub>a</sub> q<sub>&pi;</sub> (s, a) ∂&pi;(a|s, &theta;) / ∂&theta;
 <br/><br/>
 Use gradient ascent to learn policy, using experience
 <br/><br/>
