@@ -10,6 +10,7 @@ This is still a work in progress. WIP nodes are highlighted in yellow.
 
 - Reinforcement Learning, An Introduction. R, Sutton and A. Barto. Second Edition, http://www.incompleteideas.net/book/the-book.html
 - RL Specialization, Coursera, M. White and A. White, https://www.coursera.org/specializations/reinforcement-learning
+- OpenAI Spinning Up, https://spinningup.openai.com/en/latest/index.html
 
 
 ## Acknowledgements:

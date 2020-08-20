@@ -350,8 +350,12 @@ e2-> f6
 
 node[fillcolor=white, shape=box, fontcolor=black, fontsize=10]
 s1[label=<
-- Softmax policies for discrete actions<br/>
-- Gaussian policies for continuous actions 
+- Softmax policies using action <br/>preferences for discrete actions
+<br/><br/>
+- (Diagonal) Gaussian policies <br/>for continuous actions 
+<br/>
+using mean and std. dev vectors <br/>
+(diagonal covariance matrix)
 >]
 edge[label="", fontsize=8]
 f6-> s1
