@@ -31,7 +31,7 @@ v(S, w) : Approx to state-value function, for state S, and weights vector w
 
 q(S, A, w) : Approx to action-value function, for S, A and weights vector w
 
-![equ](https://latex.codecogs.com/gif.latex?\partial) : Derivaties instead of the more concise $$\nabla$$ (dot->png conversion did not like $$\nabla$$)
+![equ](https://latex.codecogs.com/gif.latex?\partial) : Derivaties instead of the more concise ![equ](https://latex.codecogs.com/gif.latex?\nabla) (dot->png conversion did not like ![equ](https://latex.codecogs.com/gif.latex?\nabla))
 
 ![equ](https://latex.codecogs.com/gif.latex?\mu(s)) : Probability of being in state s, according to stationary distribution ![equ](https://latex.codecogs.com/gif.latex?\mu)
 
