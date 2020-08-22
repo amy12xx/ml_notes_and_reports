@@ -10,8 +10,8 @@ A word on notation. I abuse notation slightly in the visualization, for making i
 
 
 ## Notation:
-$$G_t$$ : Full (Monte carlo) return
-$$\lambda$$ : Discount factor
+![equ](https://latex.codecogs.com/gif.latex?G_t) : Full (Monte carlo) return
+![equ](https://latex.codecogs.com/gif.latex?\lambda) : Discount factor
 $$S, S', A, R$$ : Specific states, action and reward, in sample based methods
 $$s, s', a, r$$ : States, action and reward variables
 $$E$$ : Expectation
