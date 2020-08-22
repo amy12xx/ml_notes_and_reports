@@ -45,9 +45,11 @@ q(S, A, w) : Approx to action-value function, for S, A and weights vector w
 
 ## References:
 
-- Reinforcement Learning, An Introduction. R, Sutton and A. Barto. Second Edition, http://www.incompleteideas.net/book/the-book.html
-- RL Specialization, Coursera, M. White and A. White, https://www.coursera.org/specializations/reinforcement-learning
-- OpenAI Spinning Up, https://spinningup.openai.com/en/latest/index.html
+[1] Reinforcement Learning, An Introduction. R, Sutton and A. Barto. Second Edition, http://www.incompleteideas.net/book/the-book.html
+
+[2] RL Specialization, Coursera, M. White and A. White, https://www.coursera.org/specializations/reinforcement-learning
+
+[3] OpenAI Spinning Up, https://spinningup.openai.com/en/latest/index.html
 
 
 ## Acknowledgements:
