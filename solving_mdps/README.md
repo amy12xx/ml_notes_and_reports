@@ -1,8 +1,29 @@
 # Solving MDPs using Planning and RL methods
 
-I am working on a visualization of a survey of methods (planning and reinforcement learning) used to solve (sequential) decision problems constructed via MDPs, with a focus on the differences in agent objectives in various problem settings. 
+A visualization of a survey of methods (planning and reinforcement learning) used to solve (sequential) decision problems constructed via MDPs, meant mostly as a cheatsheet, to support the wonderful S&B textbook. I did this while auditing U of Alberta's RL specialization which also follows the textbook very closely, and more recently, while attending <a href="https://machinelearningtokyo.com/" title="MLT">Machine Learning Tokyo's</a> RL sessions, which are a lot of fun, both of which, I highly recommend.
 
-This is still a work in progress. WIP nodes are highlighted in yellow.
+I started to work on it, as a way of keeping up with all the loaded terms and jargon, and especially to differentiate between the various problem settings of episodic, continuous horizon, continuous states/actions etc. As you can see, I got a bit carried away. That being said, there is so much more of the field missing in here, and this is probably just a good starting point.
+
+I may add to this as I continue surveying the field, but will probably create new versions for specific other cases, if I don't find a good survey on the internet.
+
+A word on notation. I abuse notation slightly in the visualization, for making it more consistent, and to deal with dot's symbol limitations (and my laziness to investigate further the issues I encountered using latex with dot). This notation is mostly consistent with the S&B textbook.
+
+
+## Notation:
+$$G_t$$ : Full (Monte carlo) return
+$$\lambda$$ : Discount factor
+$$S, S', A, R$$ : Specific states, action and reward, in sample based methods
+$$s, s', a, r$$ : States, action and reward variables
+$$E$$ : Expectation
+$$V_\pi(s)$$ : State-value function under policy $$\pi$$
+$$Q_\pi(s,a)$$ : Action-value function under policy $$\pi$$
+$$v(S, w)$$ : Approx to state-value function, for state S, and weights vector w
+$$q(S, A, w)$$ : Approx to action-value function, for S, A and weights vector w
+$$\partial$$ : Derivaties instead of the more concise $$\nabla$$ (dot->png conversion did not like $$\nabla$$)
+$$\mu(s)$$ : Stationary distribution of states, in continuing tasks
+$$\alpha, \beta$$ : Learning rates
+$$r(\pi)$$ : Average return following policy $$\pi$$
+
 
 <img src="https://amy12xx.github.io/ml_notes_and_reports/solving_mdps/solving_mdps.png">
 

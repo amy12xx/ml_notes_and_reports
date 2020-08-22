@@ -37,9 +37,9 @@ node[shape=box, fillcolor=white, color=grey50]
 c1[label=<<b>Undiscounted(/Discounted)</b> <br/><br/>
 <font color="blue">Maximize expected (discounted) cumulative future reward</font>
 <br/><br/>
-G<sub>t</sub> = &Sigma;<sub>t+1..T</sub>&gamma;<sup>k-t-1</sup>R<sub>k</sub>
+G<sub>t</sub> = &Sigma;<sub>k=t+1..T</sub>&gamma;<sup>k-t-1</sup>R<sub>k</sub>
 <br/><br/>
-v<sub>&pi;</sub>(s) = E[G<sub>t</sub> | S<sub>t</sub>]
+V<sub>&pi;</sub>(s) = E[G<sub>t</sub> | S<sub>t</sub>]
 >]
 node[shape=box, fillcolor=white, color=grey50]
 c3[label=<<b>Undiscounted</b>>]
