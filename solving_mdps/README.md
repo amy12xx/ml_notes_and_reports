@@ -20,7 +20,7 @@ s, s', a, r : States, action and reward variables
 
 E : Expectation
 
-![equ](https://latex.codecogs.com/gif.latex?V(\pi) : State-value function under policy
+![equ](https://latex.codecogs.com/gif.latex?V(\pi)) : State-value function under policy
 
 $$Q_\pi(s,a)$$ : Action-value function under policy $$\pi$$
 $$v(S, w)$$ : Approx to state-value function, for state S, and weights vector w
