@@ -11,11 +11,17 @@ A word on notation. I abuse notation slightly in the visualization, for making i
 
 ## Notation:
 ![equ](https://latex.codecogs.com/gif.latex?G_t) : Full (Monte carlo) return
+
 ![equ](https://latex.codecogs.com/gif.latex?\lambda) : Discount factor
-$$S, S', A, R$$ : Specific states, action and reward, in sample based methods
-$$s, s', a, r$$ : States, action and reward variables
-$$E$$ : Expectation
-$$V_\pi(s)$$ : State-value function under policy $$\pi$$
+
+S, S', A, R : Specific states, action and reward, in sample based methods
+
+s, s', a, r : States, action and reward variables
+
+E : Expectation
+
+![equ](https://latex.codecogs.com/gif.latex?V(\pi) : State-value function under policy
+
 $$Q_\pi(s,a)$$ : Action-value function under policy $$\pi$$
 $$v(S, w)$$ : Approx to state-value function, for state S, and weights vector w
 $$q(S, A, w)$$ : Approx to action-value function, for S, A and weights vector w
