@@ -2,7 +2,7 @@
 
 A visualization of a survey of methods (planning and reinforcement learning) used to solve (sequential) decision problems constructed via MDPs, meant mostly as a cheatsheet, to support the wonderful S&B textbook. I started to work on it, as a way of keeping up with all the loaded terms, and especially to differentiate between the various problem settings of episodic, continuous horizon, continuous states/actions etc. 
 
-I may add to this as I continue surveying the field, but will probably create new versions for specific other cases (since this blew up).
+I may add to this as I continue surveying the field, but will probably create new versions for specific other cases (since this one blew up).
 
 A word on notation. I abuse notation slightly in the visualization, for making it more consistent, and to deal with dot's symbol limitations (and my laziness to investigate further the issues I encountered using latex with dot). This notation is mostly consistent with the S&B textbook.
 
