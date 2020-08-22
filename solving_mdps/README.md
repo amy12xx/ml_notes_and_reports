@@ -1,10 +1,8 @@
 # Solving MDPs using Planning and RL methods
 
-A visualization of a survey of methods (planning and reinforcement learning) used to solve (sequential) decision problems constructed via MDPs, meant mostly as a cheatsheet, to support the wonderful S&B textbook. I did this while auditing U of Alberta's RL specialization which also follows the textbook very closely, and more recently, while attending <a href="https://machinelearningtokyo.com/" title="MLT">Machine Learning Tokyo's</a> RL sessions, which are a lot of fun, both of which, I highly recommend. Both of these I did after a semester in RL at OMSCS, which is a really great course, and should not be missed by anyone in the program!
+A visualization of a survey of methods (planning and reinforcement learning) used to solve (sequential) decision problems constructed via MDPs, meant mostly as a cheatsheet, to support the wonderful S&B textbook. I started to work on it, as a way of keeping up with all the loaded terms, and especially to differentiate between the various problem settings of episodic, continuous horizon, continuous states/actions etc. 
 
-I started to work on it, as a way of keeping up with all the loaded terms, and especially to differentiate between the various problem settings of episodic, continuous horizon, continuous states/actions etc. As you can see, I got a bit carried away. But there is so much more of the field missing in here, and this is probably just a good starting point.
-
-I may add to this as I continue surveying the field, but will probably create new versions for specific other cases, if I don't find a good survey on the internet.
+I may add to this as I continue surveying the field, but will probably create new versions for specific other cases (since this blew up).
 
 A word on notation. I abuse notation slightly in the visualization, for making it more consistent, and to deal with dot's symbol limitations (and my laziness to investigate further the issues I encountered using latex with dot). This notation is mostly consistent with the S&B textbook.
 
