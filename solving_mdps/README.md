@@ -20,15 +20,21 @@ s, s', a, r : States, action and reward variables
 
 E : Expectation
 
-![equ](https://latex.codecogs.com/gif.latex?V(\pi)) : State-value function under policy
+![equ](https://latex.codecogs.com/gif.latex?V_\pi(s)) : State-value function under policy
 
-$$Q_\pi(s,a)$$ : Action-value function under policy $$\pi$$
-$$v(S, w)$$ : Approx to state-value function, for state S, and weights vector w
-$$q(S, A, w)$$ : Approx to action-value function, for S, A and weights vector w
-$$\partial$$ : Derivaties instead of the more concise $$\nabla$$ (dot->png conversion did not like $$\nabla$$)
-$$\mu(s)$$ : Stationary distribution of states, in continuing tasks
-$$\alpha, \beta$$ : Learning rates
-$$r(\pi)$$ : Average return following policy $$\pi$$
+![equ](https://latex.codecogs.com/gif.latex?Q_\pi(s,a)) : Action-value function under policy $$\pi$$
+
+v(S, w) : Approx to state-value function, for state S, and weights vector w
+
+q(S, A, w) : Approx to action-value function, for S, A and weights vector w
+
+![equ](https://latex.codecogs.com/gif.latex?\partial) : Derivaties instead of the more concise $$\nabla$$ (dot->png conversion did not like $$\nabla$$)
+
+![equ](https://latex.codecogs.com/gif.latex?\mu(s)) : Probability of being in state s, according to stationary distribution ![equ](https://latex.codecogs.com/gif.latex?\mu)
+
+![equ](https://latex.codecogs.com/gif.latex?\alpha,\beta) : Learning rates
+
+![equ](https://latex.codecogs.com/gif.latex?r(\pi)) : Average return following policy ![equ](https://latex.codecogs.com/gif.latex?\pi)
 
 
 <img src="https://amy12xx.github.io/ml_notes_and_reports/solving_mdps/solving_mdps.png">
