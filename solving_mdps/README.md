@@ -8,6 +8,8 @@ I may add to this as I continue surveying the field, but will probably create ne
 
 A word on notation. I abuse notation slightly in the visualization, for making it more consistent, and to deal with dot's symbol limitations (and my laziness to investigate further the issues I encountered using latex with dot). This notation is mostly consistent with the S&B textbook.
 
+If you find any errors or have any feedback, please create an issue.
+
 
 
 <img src="https://amy12xx.github.io/ml_notes_and_reports/solving_mdps/solving_mdps.png">
