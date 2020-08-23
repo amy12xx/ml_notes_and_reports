@@ -26,7 +26,7 @@ E : Expectation
 
 ![equ](https://latex.codecogs.com/gif.latex?V_\pi(s)) : State-value function under policy
 
-![equ](https://latex.codecogs.com/gif.latex?Q_\pi(s,a)) : Action-value function under policy $$\pi$$
+![equ](https://latex.codecogs.com/gif.latex?Q_\pi(s,a)) : Action-value function under policy
 
 v(S, w) : Approx to state-value function, for state S, and weights vector w
 
