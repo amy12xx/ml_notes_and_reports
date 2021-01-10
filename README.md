@@ -2,4 +2,4 @@
 
 Supporting files for blog
 
-Links to gists here: https://gist.github.com/amy12xx
+Link to gists here: https://gist.github.com/amy12xx
